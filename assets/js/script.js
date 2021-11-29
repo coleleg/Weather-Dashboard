@@ -25,16 +25,33 @@ var formSubmitHandler = function (event) {
 
 // creates the API URL for submitted city
 var getCityCurrent = function(city) {
-    var apiUrl = "api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=dee89b7fccd367887e9d18c1350058ee";
+    var apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=dee89b7fccd367887e9d18c1350058ee";
 
     fetch(apiUrl).then(function(response){
-        console.log(response);
+        if (response.ok) {
+            console.log(response);
+            response.json().then(function(data) {
+                var temp = Math.round(data.main.temp) + "°F";
+                var humidity = data.main.humidity + "%";
+                var wind = data.wind.speed + " MPH";
+                console.log(temp);
+                console.log(humidity);
+                console.log(wind);
+                console.log(data);
+
+                tempEl.textContent = "Temp: " + temp;
+                humidityEl.textContent = "Humidity: " + humidity;
+                windEl.textContent = "Wind: " + wind;
+
+            })
+        }
+        else {
+            alert('Error: ' + response.statusText);
+          }
+         
     }
     )};
 
-// var displayCurrentWeather = function () {
-
-// }
 
 // var displayFiveDay = function () {
 
