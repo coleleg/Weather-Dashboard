@@ -5,6 +5,7 @@ var userFormEl = document.querySelector("#submit-btn");
 var cityNameEl = document.querySelector("#city-input");
 
 // Current Weather Elements
+var weatherIconEl = document.querySelector("#weather-icon");
 var tempEl = document.querySelector("#temp");
 var windEl = document.querySelector("#wind");
 var humidityEl = document.querySelector("#humidity");
@@ -23,6 +24,8 @@ var day2MinEl = document.querySelector("#day2min");
 var day3MinEl = document.querySelector("#day3min");
 var day4MinEl = document.querySelector("#day4min");
 var day5MinEl = document.querySelector("#day5min");
+
+
 
 
 // Deals with submit and submit errors
@@ -107,6 +110,7 @@ function getCityMain (city) {
                 console.log(response);
                 response.json().then(function(data) {
                     // daily temperature holders
+                    let day1Icon;
                     let day1Max;
                     let day2Max;
                     let day3Max;
@@ -122,6 +126,14 @@ function getCityMain (city) {
                     let days = data.daily;
 
                     for (i=0; i < days.length; i++) {
+
+                        day1Icon = [days[0].weather[0].icon];
+                        day2Icon = [days[1].weather[0].icon];
+                        day3Icon = [days[2].weather[0].icon];
+                        day4Icon = [days[3].weather[0].icon];
+                        day5Icon = [days[4].weather[0].icon];
+
+
                         day1Max = [days[0].temp.max];
                         day2Max = [days[1].temp.max];
                         day3Max = [days[2].temp.max];
@@ -133,9 +145,27 @@ function getCityMain (city) {
                         day3Min = [days[2].temp.min];
                         day4Min = [days[3].temp.min];
                         day5Min = [days[4].temp.min];
-                    }
+                    };
+                
+                    // Five Day and Current Weather Icons
+                    let day1IconUrl =  "http://openweathermap.org/img/w/" + day1Icon + ".png";
+                    weatherIconEl.setAttribute('src', day1IconUrl);
+                    document.querySelector("#weather-1").setAttribute('src', day1IconUrl);
 
-                    console.log(day1Max, day1Min, day2Max, day2Min);
+                    let day2IconUrl =  "http://openweathermap.org/img/w/" + day2Icon + ".png";
+                    document.querySelector("#weather-2").setAttribute('src', day2IconUrl);
+
+                    let day3IconUrl =  "http://openweathermap.org/img/w/" + day3Icon + ".png";
+                    document.querySelector("#weather-3").setAttribute('src', day3IconUrl);
+
+                    let day4IconUrl =  "http://openweathermap.org/img/w/" + day4Icon + ".png";
+                    document.querySelector("#weather-4").setAttribute('src', day4IconUrl);
+
+                    let day5IconUrl =  "http://openweathermap.org/img/w/" + day5Icon + ".png";
+                    document.querySelector("#weather-5").setAttribute('src', day5IconUrl);
+
+                    
+                    // Five Day Highs and Lows
                     day1MaxEl.textContent = "High: " + day1Max;
                     day1MinEl.textContent = "Low: " + day1Min;
 
