@@ -64,9 +64,7 @@ function formSubmitHandler (event) {
         let cityDataObj = {
             name: cityName
         }
-        cities.push(cityDataObj);
-        saveSearches();
-        loadSearches();
+        createSavedSearchEl(cityDataObj);
         
     }
         else {
@@ -236,6 +234,7 @@ function createSavedSearchEl(city) {
 
     listEl.appendChild(listItemEl);
 
+    cities.push(city);
     saveSearches();
 
 };
@@ -260,7 +259,6 @@ function loadSearches() {
 };
 
 
-
+loadSearches();
 userFormEl.addEventListener("click", formSubmitHandler);
 
-loadSearches();
