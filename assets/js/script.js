@@ -25,6 +25,26 @@ var day3MinEl = document.querySelector("#day3min");
 var day4MinEl = document.querySelector("#day4min");
 var day5MinEl = document.querySelector("#day5min");
 
+// Dates
+let tomorrow = new Date();
+tomorrow.setDate(new Date().getDate() + 1);
+document.getElementById("1card").textContent = tomorrow.toISOString().slice(0, 10);
+
+let twoDays = new Date();
+twoDays.setDate(new Date().getDate() + 2);
+document.getElementById("2card").textContent = twoDays.toISOString().slice(0, 10);
+
+let threeDays = new Date();
+threeDays.setDate(new Date().getDate() + 3);
+document.getElementById("3card").textContent = threeDays.toISOString().slice(0, 10);
+
+let fourDays = new Date();
+fourDays.setDate(new Date().getDate() + 4);
+document.getElementById("4card").textContent = fourDays.toISOString().slice(0, 10);
+
+
+console.log(tomorrow.toISOString().slice(0, 10));
+
 
 
 
@@ -69,9 +89,9 @@ function getCityMain (city) {
                 humidityEl.textContent = "Humidity: " + humidity;
                 windEl.textContent = "Wind: " + wind;
 
-                let today = new Date().toISOString().slice(0, 10)
+                let today = new Date().toISOString().slice(0, 10);
                 document.querySelector("#city-header").textContent = city.charAt(0).toUpperCase()  + city.slice(1) + "  " + today;
-                document.getElementById("1card").textContent = today.setDate(today.getDate() + 1);
+              
     
             })
 
