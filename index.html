@@ -16,7 +16,7 @@
 
    <main class="flex-row justify-space-between col-12">
 
-        <div class="row">
+    <div class="row">
         <div class="col-3">
         <div class="card bg-light mx-3 h-10">
             <h3 class="card-title mx-3">Search for a City</h3>
@@ -35,19 +35,54 @@
 
         <div class="col-9">
             <div class="card d-grid gap-3" id="weather-today">
-            <h2 class="subtitle mx-3" id="city-header">Search for a City</h2>
-            <div class="p-2 bg-light border col-2 mx-3" id="temp">Temp:</div>
-            <div class="p-2 bg-light border col-2 mx-3" id="wind">Wind:</div>
-            <div class="p-2 bg-light border col-2 mx-3" id="humidity">Humidity:</div>
-            <div class="p-2 bg-light border col-2 mx-3 mb-3" id="uv">UV Index:</div>
+            <h2 class="subtitle mx-3" id="city-header">Current Weather</h2>
+            <p class="p-2 bg-light border col-2 mx-3" id="temp">Temp:</p>
+            <p class="p-2 bg-light border col-2 mx-3" id="wind">Wind:</p>
+            <p class="p-2 bg-light border col-2 mx-3" id="humidity">Humidity:</p>
+            <p class="p-2 bg-light border col-2 mx-3 mb-3" id="uv">UV Index:</p>
             </div>
 
-            <div id="5-day-forecast">
+            <div class="row" id="5-day-forecast">
                 <h3 class="mt-3">5-Day Forecast:</h3>
+                <div class = "card" style = "width: 15rem;" id = "day1">
+                    <div class = "card-body">
+                        <h5 class = "card-title">Today's Weather</h5>
+                        <p class = "card-text" id = "day1max"></p>
+                        <p class = "card-text" id = "day1min"></p>
+                    </div>
+                </div>
+                <div class = "card" style = "width: 18rem;" id = "day2">
+                    <div class = "card-body">
+                        <h5 class = "card-title">Tomorrow's Weather</h5>
+                        <p class = "card-text" id = "day2max"></p>
+                        <p class = "card-text" id = "day2min"></p>
+                    </div>
+                </div>
+                <div class = "card" style = "width: 18rem;" id = "day3">
+                    <div class = "card-body">
+                        <h5 class = "card-title">Weather in 2 Days</h5>
+                        <p class = "card-text" id = "day3max"></p>
+                        <p class = "card-text" id = "day3min"></p>
+                    </div>
+                </div>
+                <div class = "card" style = "width: 18rem;" id = "day4">
+                    <div class = "card-body">
+                        <h5 class = "card-title">Weather in 3 Days</h5>
+                        <p class = "card-text" id = "day4max"></p>
+                        <p class = "card-text" id = "day4min"></p>
+                    </div>
+                </div>
+                <div class = "card" style = "width: 18rem;" id = "day5">
+                    <div class = "card-body">
+                        <h5 class = "card-title">Weather in 4 Days</h5>
+                        <p class = "card-text" id = "day5max"></p>
+                        <p class = "card-text" id = "day5min"></p>
+                    </div>
+                </div>
 
-            </div>
             </div>
         </div>
+    </div>
 
        
 
