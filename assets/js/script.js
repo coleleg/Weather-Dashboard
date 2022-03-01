@@ -94,9 +94,32 @@ function getCityMain (city) {
             if (response.ok) {
                 console.log(response);
                 response.json().then(function(data) {
-                    let day1max = data.daily.temp.max;
-                    let day1min = data.daily.temp.min;
-                    console.log(day1max, day1min);
+                    let day1max;
+                    let day2max;
+                    let day3max;
+                    let day4max;
+                    let day5max;
+                    let day1min;
+                    let day2min;
+                    let day3min;
+                    let day4min;
+                    let day5min;
+                    let days = data.daily;
+                    for (i=0; i < days.length; i++) {
+                        day1max = [days[0].temp.max];
+                        day2max = [days[1].temp.max];
+                        day3max = [days[2].temp.max];
+                        day4max = [days[3].temp.max];
+                        day5max = [days[4].temp.max];
+
+                        day1min = [days[0].temp.min];
+                        day2min = [days[1].temp.min];
+                        day3min = [days[2].temp.min];
+                        day4min = [days[3].temp.min];
+                        day5min = [days[4].temp.min];
+                    }
+
+                    console.log(day1max, day1min, day2max, day2min);
                 })
             }
         })
