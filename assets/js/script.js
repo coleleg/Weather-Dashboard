@@ -3,6 +3,7 @@
 // User Form Elements
 var userFormEl = document.querySelector("#submit-btn");
 var cityNameEl = document.querySelector("#city-input");
+var listEl = document.querySelector("#saved-searches");
 
 // Current Weather Elements
 var weatherIconEl = document.querySelector("#weather-icon");
@@ -71,6 +72,21 @@ function formSubmitHandler (event) {
             alert("Please enter a city name")
         }
       
+};
+
+function savedSearchHandler(event) {
+    event.preventDefault();
+    let targetEl = event.target;
+    let cityName = targetEl.textContent;
+    if (cityName) {
+        getCityMain(cityName);
+        console.log(cityName);
+        
+    }
+        else {
+            alert("Please enter a city name")
+        }
+
 }
 
 // creates the API URL for submitted city
@@ -226,11 +242,9 @@ function fiveDay (lon, lat) {
 
 // Creates a list of saved searches
 function createSavedSearchEl(city) {
-    const listEl = document.querySelector("#saved-searches");
-    
     let listItemEl = document.createElement('li');
-    listItemEl.className = 'p-2 bg-light border col-2 mx-3';
-    listItemEl.textContent = city;
+    listItemEl.className = 'list-content p-2 bg-light col-8 border-dark mx-1 text-center list-group-item';
+    listItemEl.textContent = city.name.charAt(0).toUpperCase()  + city.name.slice(1);
 
     listEl.appendChild(listItemEl);
 
@@ -261,4 +275,5 @@ function loadSearches() {
 
 loadSearches();
 userFormEl.addEventListener("click", formSubmitHandler);
+listEl.addEventListener("click", savedSearchHandler);
 
