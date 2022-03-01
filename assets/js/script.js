@@ -33,10 +33,11 @@ function formSubmitHandler (event) {
     event.preventDefault();
 
     var cityName = cityNameEl.value.trim();
-  ;
+  
 
     if (cityName) {
-        getCityMain(cityName)
+        getCityMain(cityName);
+        
         
     }
         else {
@@ -58,20 +59,19 @@ function getCityMain (city) {
                 var temp = Math.round(data.main.temp) + "°F";
                 var humidity = data.main.humidity + "%";
                 var wind = data.wind.speed + " MPH";
-                lat = data.coord.lat;
-                lon = data.coord.lon;
+                let lat = data.coord.lat;
+                let lon = data.coord.lon;
                 getUVIndex(lon, lat);
                 fiveDay(lon, lat);
             
-                console.log(lat, lon);
-                console.log(temp);
-                console.log(humidity);
-                console.log(wind);
 
                 tempEl.textContent = "Temp: " + temp;
                 humidityEl.textContent = "Humidity: " + humidity;
                 windEl.textContent = "Wind: " + wind;
-               
+
+                let today = new Date().toISOString().slice(0, 10)
+                document.querySelector("#city-header").textContent = city.charAt(0).toUpperCase()  + city.slice(1) + "  " + today;
+                document.getElementById("1card").textContent = today.setDate(today.getDate() + 1);
     
             })
 
@@ -119,6 +119,10 @@ function getCityMain (city) {
                 response.json().then(function(data) {
                     // daily temperature holders
                     let day1Icon;
+                    let day2Icon;
+                    let day3Icon;
+                    let day4Icon;
+                    let day5Icon;
                     let day1Max;
                     let day2Max;
                     let day3Max;
