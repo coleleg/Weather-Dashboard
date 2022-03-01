@@ -95,6 +95,14 @@ function getCityMain (city) {
                     let uvi = data.current.uvi;
                     console.log(uvi);
                     uvEl.textContent = "UV Index: " + uvi;
+
+                    if (uvi < 3) {
+                        uvEl.setAttribute("class", "p-2 border col-2 mx-3 mb-3 bg-success");
+                    } else if ( uvi > 2.99 && uvi < 7) {
+                        uvEl.setAttribute("class", "p-2 border col-2 mx-3 mb-3 bg-warning");    
+                    } else if (uvi > 7) {
+                        uvEl.setAttribute("class", "p-2 border col-2 mx-3 mb-3 bg-danger");   
+                    }
     
                 })
             }
