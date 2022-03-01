@@ -26,6 +26,20 @@ var day3MinEl = document.querySelector("#day3min");
 var day4MinEl = document.querySelector("#day4min");
 var day5MinEl = document.querySelector("#day5min");
 
+// Five Day Wind Elements
+var day1WindEl = document.querySelector("#day1wind");
+var day2WindEl = document.querySelector("#day2wind");
+var day3WindEl = document.querySelector("#day3wind");
+var day4WindEl = document.querySelector("#day4wind");
+var day5WindEl = document.querySelector("#day5wind");
+
+// Five Day Humidity Eelements
+var day1HumEl = document.querySelector("#day1hum");
+var day2HumEl = document.querySelector("#day2hum");
+var day3HumEl = document.querySelector("#day3hum");
+var day4HumEl = document.querySelector("#day4hum");
+var day5HumEl = document.querySelector("#day5hum");
+
 // Dates
 let today = new Date().toISOString().slice(0, 10);
 document.getElementById("1card").textContent = today;
@@ -109,6 +123,8 @@ function getCityMain (city) {
                 tempEl.textContent = "Temp: " + temp;
                 humidityEl.textContent = "Humidity: " + humidity;
                 windEl.textContent = "Wind: " + wind;
+                day1HumEl.textContent = "Humidity: " + humidity;
+                day1WindEl.textContent = "Wind: " + wind;
 
                 let today = new Date().toISOString().slice(0, 10);
                 document.querySelector("#city-header").textContent = city.charAt(0).toUpperCase()  + city.slice(1) + "  " + today;
@@ -160,22 +176,34 @@ function fiveDay (lon, lat) {
         if (response.ok) {
             console.log(response);
             response.json().then(function(data) {
-                // daily temperature holders
+                // daily weather holders
                 let day1Icon;
                 let day2Icon;
                 let day3Icon;
                 let day4Icon;
                 let day5Icon;
+
                 let day1Max;
                 let day2Max;
                 let day3Max;
                 let day4Max;
                 let day5Max;
+
                 let day1Min;
                 let day2Min;
                 let day3Min;
                 let day4Min;
                 let day5Min;
+    
+                let day2Wind;
+                let day3Wind;
+                let day4Wind;
+                let day5Wind;
+            
+                let day2Hum;
+                let day3Hum;
+                let day4Hum;
+                let day5Hum;
 
                 // data.daily is an array of JSON data - each day is an index
                 let days = data.daily;
@@ -200,6 +228,17 @@ function fiveDay (lon, lat) {
                     day3Min = [days[2].temp.min];
                     day4Min = [days[3].temp.min];
                     day5Min = [days[4].temp.min];
+
+                    day2Wind = [days[1].wind_speed];
+                    day3Wind = [days[2].wind_speed];
+                    day4Wind = [days[3].wind_speed];
+                    day5Wind = [days[4].wind_speed];
+
+                    day2Hum = [days[1].humidity];
+                    day3Hum = [days[2].humidity];
+                    day4Hum = [days[3].humidity];
+                    day5Hum = [days[4].humidity];
+
                 };
             
                 // Five Day and Current Weather Icons
@@ -235,6 +274,19 @@ function fiveDay (lon, lat) {
 
                 day5MaxEl.textContent = "High: " + day5Max;
                 day5MinEl.textContent = "Low: " + day5Min;
+
+                // Five Day Wind and Humidity
+                day2WindEl.textContent = "Wind: " + day2Wind + " MPH";
+                day2HumEl.textContent = "Humidity: " + day2Hum + "%";
+
+                day3WindEl.textContent = "Wind: " + day3Wind + " MPH";
+                day3HumEl.textContent = "Humidity: " + day3Hum + "%";
+
+                day4WindEl.textContent = "Wind: " + day4Wind + " MPH";
+                day4HumEl.textContent = "Humidity: " + day4Hum + "%";
+
+                day5WindEl.textContent = "Wind: " + day5Wind + " MPH";
+                day5HumEl.textContent = "Humidity: " + day5Hum + "%";
             })
         }
     })
@@ -243,7 +295,7 @@ function fiveDay (lon, lat) {
 // Creates a list of saved searches
 function createSavedSearchEl(city) {
     let listItemEl = document.createElement('li');
-    listItemEl.className = 'list-content p-2 bg-light col-8 border-dark mx-1 text-center list-group-item';
+    listItemEl.className = 'hover list-content p-2 bg-light col-8 border-dark mx-1 text-center list-group-item';
     listItemEl.textContent = city.name.charAt(0).toUpperCase()  + city.name.slice(1);
 
     listEl.appendChild(listItemEl);
