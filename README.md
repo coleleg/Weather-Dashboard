@@ -1,6 +1,6 @@
 # Weather-Dashboard
 **Description**
-https://coleleg.github.io/Weather-Dashboard/
+https://coleleg.github.io/weather-dashboard/
 
 ![Screenshot (30)](https://user-images.githubusercontent.com/15861137/156265326-e915edeb-f2c7-4a77-9a0b-2b792bea406b.png)
 
