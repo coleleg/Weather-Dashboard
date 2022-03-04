@@ -22,13 +22,13 @@ https://coleleg.github.io/weather-dashboard/
   You can clone this repository from https://github.com/coleleg/weather-dashboard. No installation is required for use.
   
   ## Usage.
-  Users can access the webpage for this application at https://github.com/coleleg/weather-dashboard  Once you're on the webpage, search for any city in the world to see the current weather and a five-day forecast.
+  Users can access the webpage for this application at https://coleleg.github.io/weather-dashboard/  Once you're on the webpage, search for any city in the world to see the current weather and a five-day forecast.
   
   ## Licenses
   This application was made using the MIT license.
 
   ## Questions
-  GitHub: github.com/coleleg
+  GitHub: [github.com/coleleg](github.com/coleleg)
  
   Email: coleleg@gmail.com
  
